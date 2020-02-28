@@ -14,4 +14,6 @@ public interface FacultyDao {
 	
 	void delete(int id);
 
+	List<Faculty> getByInstitution(int id);
+
 }

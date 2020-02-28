@@ -15,10 +15,10 @@ import javax.persistence.Table;
 public class Faculty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	@Column(name = "`employee_id`")
 	private Integer employee_id;
-	@Column(name = "`inst_id`")
+	@Column(name = "`institution_id`")
 	private Integer institution_id;
 	@Column(name = "`first_name`")
 	private String first_name;
@@ -41,11 +41,11 @@ public class Faculty {
 	@Column(name = "`modified_by`")
 	private String modifiedby;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

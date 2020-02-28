@@ -28,6 +28,15 @@ public class FacultyController {
 		return facultyService.get();
 		
 	}
+	@GetMapping("/faculty/institution/{inst_id}")
+	public List<Faculty> getbyInst(@PathVariable int inst_id){
+		
+		return facultyService.getByInstitution(inst_id);
+	}
+	
+	
+	
+	
 	@GetMapping("/faculty/{id}")
 	public Faculty get(@PathVariable int id) {
 		

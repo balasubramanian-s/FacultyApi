@@ -23,8 +23,7 @@ public class FacultyServiceImpl implements FacultyService {
 	}
 	@Transactional
 	@Override
-	public Faculty get(int id) {
-		
+	public Faculty get(int id) {		
 		return facultyDao.get(id);
 	}
 	@Transactional
@@ -44,6 +43,11 @@ public class FacultyServiceImpl implements FacultyService {
 	public void delete(int id) {
 		 facultyDao.delete(id);
 		
+	}
+	@Override
+	public List<Faculty> getByInstitution(int id) {
+		return  facultyDao.getByInstitution(id);
+	
 	}
 
 }

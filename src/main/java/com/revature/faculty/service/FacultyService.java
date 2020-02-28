@@ -12,5 +12,6 @@ public interface FacultyService {
 	void save (Faculty fac);
 	
 	void delete(int id);
-
+	
+	List<Faculty> getByInstitution(int id);
 }
