@@ -22,8 +22,7 @@ public class FacultyDaoImpl implements FacultyDao {
 		
 		Session currentSession=entityManager.unwrap(Session.class);
 		Query<Faculty> query=  currentSession.createQuery("from Faculty",Faculty.class);
-		List<Faculty> list=query.getResultList();
-		
+		List<Faculty> list=query.getResultList();		
 		return list;
 	}
 	@SuppressWarnings("unchecked")
