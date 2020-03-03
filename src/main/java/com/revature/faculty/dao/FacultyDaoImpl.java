@@ -25,11 +25,11 @@ public class FacultyDaoImpl implements FacultyDao {
 		List<Faculty> list=query.getResultList();		
 		return list;
 	}
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public List<Faculty> getByInstitution(int id){
 		Session currentSession=entityManager.unwrap(Session.class);
-		Query<Faculty> query=currentSession.createQuery("from Faculty Where institution_id=" + id);
+		Query<Faculty> query=currentSession.createQuery("from Faculty Where institution_id=" + id,Faculty.class);
 		List<Faculty> list=query.getResultList();
 		return list;
 	}
