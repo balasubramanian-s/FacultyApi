@@ -25,7 +25,7 @@ public class Faculty {
 	
 	@ManyToOne
 	@JoinColumn(name = "`institution_id`")
-	private  int institution_id;
+	private  Organization org;
 	@Column(name = "`first_name`")
 	private String first_name;
 	@Column(name = "`last_name`")
@@ -65,12 +65,14 @@ public class Faculty {
 		this.employee_id = employee_id;
 	}
 
-	public int getInstitution_id() {
-		return institution_id;
+	
+
+	public Organization getOrg() {
+		return org;
 	}
 
-	public void setInstitution_id(int institution_id) {
-		this.institution_id = institution_id;
+	public void setOrg(Organization org) {
+		this.org = org;
 	}
 
 	public String getFirst_name() {
@@ -155,15 +157,16 @@ public class Faculty {
 		this.modifiedby = modifiedby;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Faculty [id=" + id + ", employee_id=" + employee_id + ", institution_id=" + institution_id
-				+ ", first_name=" + first_name + ", last_name=" + last_name + ", dob=" + dob + ", email=" + email
-				+ ", mobile_no=" + mobile_no + ", roles=" + roles + ", createdon=" + createdon + ", modifiedon="
-				+ modifiedon + ", createdby=" + createdby + ", modifiedby=" + modifiedby + "]";
+		return "Faculty [id=" + id + ", employee_id=" + employee_id + ", org=" + org + ", first_name=" + first_name
+				+ ", last_name=" + last_name + ", dob=" + dob + ", email=" + email + ", mobile_no=" + mobile_no
+				+ ", roles=" + roles + ", createdon=" + createdon + ", modifiedon=" + modifiedon + ", createdby="
+				+ createdby + ", modifiedby=" + modifiedby + "]";
 	}
 
+
+	
 	
 
 

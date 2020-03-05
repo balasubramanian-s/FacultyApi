@@ -2,6 +2,7 @@ package com.revature.faculty.dao;
 
 import java.util.List;
 
+import com.revature.faculty.dto.GetFacultyDto;
 import com.revature.faculty.model.Faculty;
 
 public interface FacultyDao {

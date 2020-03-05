@@ -2,13 +2,15 @@ package com.revature.faculty.service;
 
 import java.util.List;
 
+import com.revature.faculty.dto.GetFacultyDto;
 import com.revature.faculty.dto.InsertFacultyDto;
 import com.revature.faculty.model.Faculty;
 
+
 public interface FacultyService {
-	List<Faculty> get();
+	List<GetFacultyDto> getFaculty();
 	
-	Faculty get(int id);
+	GetFacultyDto get(int id);
 	
 	void save (InsertFacultyDto fac);
 	

@@ -24,9 +24,6 @@ public class InsertFacultyDto {
 	private int role_id;
 	@JsonIgnore
 	private LocalDateTime createdon=LocalDateTime.now();
-	
-
-	
 
 
 
