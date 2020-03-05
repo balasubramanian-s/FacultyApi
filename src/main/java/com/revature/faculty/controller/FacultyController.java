@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.faculty.dto.InsertFacultyDto;
 import com.revature.faculty.model.Faculty;
 import com.revature.faculty.model.Roles;
 import com.revature.faculty.service.FacultyService;
@@ -50,13 +51,13 @@ public class FacultyController {
 	}
 
 	@PostMapping("/faculty")
-	public Faculty save(@RequestBody Faculty fac) {
+	public InsertFacultyDto save(@RequestBody InsertFacultyDto fac) {
 		facultyService.save(fac);
 		return fac;
 	}
 
 	@PutMapping("/faculty")
-	public Faculty update(@RequestBody Faculty fac) {
+	public InsertFacultyDto update(@RequestBody InsertFacultyDto fac) {
 		facultyService.save(fac);
 		return fac;
 	}
@@ -67,6 +68,8 @@ public class FacultyController {
 		return "Faculty Deleted With id:" + id;
 
 	}
+	
+	//CONTROLLER FOR  ROLES
 	@GetMapping("/role")
 	public List<Roles> getRoles(){
 		return rolesService.get();

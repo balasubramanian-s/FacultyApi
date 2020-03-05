@@ -37,7 +37,7 @@ public class FacultyDaoImpl implements FacultyDao {
 	@Override
 	public Faculty get(int id) {
 		Session currentSession=entityManager.unwrap(Session.class);
-		Faculty facultyobj=currentSession.get(Faculty.class, id); 		
+		Faculty facultyobj=currentSession.get(Faculty.class, id); 	
 		return facultyobj;
 	}
 

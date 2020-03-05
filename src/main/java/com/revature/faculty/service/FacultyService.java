@@ -2,6 +2,7 @@ package com.revature.faculty.service;
 
 import java.util.List;
 
+import com.revature.faculty.dto.InsertFacultyDto;
 import com.revature.faculty.model.Faculty;
 
 public interface FacultyService {
@@ -9,7 +10,7 @@ public interface FacultyService {
 	
 	Faculty get(int id);
 	
-	void save (Faculty fac);
+	void save (InsertFacultyDto fac);
 	
 	void delete(int id);
 	

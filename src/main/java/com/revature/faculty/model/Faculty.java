@@ -1,25 +1,31 @@
 package com.revature.faculty.model;
 
+
 import java.sql.Date;
-import java.time.Instant;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import com.revature.faculty.model.Roles;
 @Entity
 @Table(name = "`faculty`")
 public class Faculty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 	@Column(name = "`employee_id`")
-	private Integer employee_id;
-	@Column(name = "`institution_id`")
-	private Integer institution_id;
+	private int employee_id;
+	
+	@ManyToOne
+	@JoinColumn(name = "`institution_id`")
+	private  int institution_id;
 	@Column(name = "`first_name`")
 	private String first_name;
 	@Column(name = "`last_name`")
@@ -30,38 +36,40 @@ public class Faculty {
 	private String email;
 	@Column(name = "`mobile_number`")
 	private Integer mobile_no;
-	@Column(name = "`role_id`")
-	private Integer role_id;
+	
+	@ManyToOne(targetEntity = Roles.class)
+	@JoinColumn(name = "`role_id`")
+	private Roles roles;
 	@Column(name = "`created_on`")
-	private Instant createdon;
+	private LocalDateTime createdon;
 	@Column(name = "`modified_on`")
-	private Instant modifiedon;
+	private LocalDateTime modifiedon;
 	@Column(name = "`created_by`")
 	private String createdby;
 	@Column(name = "`modified_by`")
 	private String modifiedby;
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public Integer getEmployee_id() {
+	public int getEmployee_id() {
 		return employee_id;
 	}
 
-	public void setEmployee_id(Integer employee_id) {
+	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
 	}
 
-	public Integer getInstitution_id() {
+	public int getInstitution_id() {
 		return institution_id;
 	}
 
-	public void setInstitution_id(Integer institution_id) {
+	public void setInstitution_id(int institution_id) {
 		this.institution_id = institution_id;
 	}
 
@@ -105,27 +113,29 @@ public class Faculty {
 		this.mobile_no = mobile_no;
 	}
 
-	public Integer getRole_id() {
-		return role_id;
+	public Roles getRoles() {
+		return roles;
 	}
 
-	public void setRole_id(Integer role_id) {
-		this.role_id = role_id;
+	public void setRoles(Roles roles) {
+		this.roles = roles;
 	}
 
-	public Instant getCreatedon() {
+	
+
+	public LocalDateTime getCreatedon() {
 		return createdon;
 	}
 
-	public void setCreatedon(Instant createdon) {
+	public void setCreatedon(LocalDateTime createdon) {
 		this.createdon = createdon;
 	}
 
-	public Instant getModifiedon() {
+	public LocalDateTime getModifiedon() {
 		return modifiedon;
 	}
 
-	public void setModifiedon(Instant modifiedon) {
+	public void setModifiedon(LocalDateTime modifiedon) {
 		this.modifiedon = modifiedon;
 	}
 
@@ -145,45 +155,18 @@ public class Faculty {
 		this.modifiedby = modifiedby;
 	}
 
+
 	@Override
 	public String toString() {
-		return "faculty [id=" + id + ", employee_id=" + employee_id + ", institution_id=" + institution_id
+		return "Faculty [id=" + id + ", employee_id=" + employee_id + ", institution_id=" + institution_id
 				+ ", first_name=" + first_name + ", last_name=" + last_name + ", dob=" + dob + ", email=" + email
-				+ ", mobile_no=" + mobile_no + ", role_id=" + role_id + ", createdon=" + createdon + ", modifiedon="
+				+ ", mobile_no=" + mobile_no + ", roles=" + roles + ", createdon=" + createdon + ", modifiedon="
 				+ modifiedon + ", createdby=" + createdby + ", modifiedby=" + modifiedby + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((institution_id == null) ? 0 : institution_id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Faculty other = (Faculty) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (institution_id == null) {
-			if (other.institution_id != null)
-				return false;
-		} else if (!institution_id.equals(other.institution_id))
-			return false;
-		return true;
-	}
 	
+
+
 	
 
 }
