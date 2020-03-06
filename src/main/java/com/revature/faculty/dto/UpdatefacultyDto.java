@@ -5,10 +5,9 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class InsertFacultyDto {
-
+public class UpdatefacultyDto {
 	
-	private Integer id;
+	private int id;
 	
 	private int employee_id;
 
@@ -26,10 +25,26 @@ public class InsertFacultyDto {
 
 	private int role_id;
 	@JsonIgnore
-	private LocalDateTime createdon=LocalDateTime.now();
-	@JsonIgnore
 	private LocalDateTime modifiedon=LocalDateTime.now();
+
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getEmployee_id() {
+		return employee_id;
+	}
+
+	public void setEmployee_id(int employee_id) {
+		this.employee_id = employee_id;
+	}
 
 	public int getInstitution_id() {
 		return institution_id;
@@ -71,17 +86,6 @@ public class InsertFacultyDto {
 		this.email = email;
 	}
 
-	
-
-
-	public int getEmployee_id() {
-		return employee_id;
-	}
-
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
-	}
-
 	public int getMobile_no() {
 		return mobile_no;
 	}
@@ -98,24 +102,6 @@ public class InsertFacultyDto {
 		this.role_id = role_id;
 	}
 
-	public LocalDateTime getCreatedon() {
-		return createdon;
-	}
-
-	public void setCreatedon(LocalDateTime createdon) {
-		this.createdon = createdon;
-	}
-	
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-
 	public LocalDateTime getModifiedon() {
 		return modifiedon;
 	}
@@ -126,16 +112,10 @@ public class InsertFacultyDto {
 
 	@Override
 	public String toString() {
-		return "InsertFacultyDto [id=" + id + ", employee_id=" + employee_id + ", institution_id=" + institution_id
-				+ ", first_name=" + first_name + ", last_name=" + last_name + ", dob=" + dob + ", email=" + email
-				+ ", mobile_no=" + mobile_no + ", role_id=" + role_id + ", createdon=" + createdon + ", modifiedon="
-				+ modifiedon + "]";
+		return "UpdatefacultyDto [employee_id=" + employee_id + ", institution_id=" + institution_id + ", first_name="
+				+ first_name + ", last_name=" + last_name + ", dob=" + dob + ", email=" + email + ", mobile_no="
+				+ mobile_no + ", role_id=" + role_id + ", modifiedon=" + modifiedon + "]";
 	}
-
-	
-
 	
 	
-	
-
 }

@@ -47,6 +47,7 @@ public class FacultyDaoImpl implements FacultyDao {
 		currentSession.saveOrUpdate(fac);
 
 	}
+	
 
 	@Override
 	public void delete(int id) {
@@ -55,5 +56,7 @@ public class FacultyDaoImpl implements FacultyDao {
 		currentSession.delete(facultyobj);
 
 	}
+
+	
 
 }

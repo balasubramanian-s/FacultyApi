@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.faculty.dto.GetFacultyDto;
+
 import com.revature.faculty.dto.InsertFacultyDto;
 import com.revature.faculty.model.Faculty;
 import com.revature.faculty.model.Roles;
@@ -32,7 +32,7 @@ public class FacultyController {
 	
 
 	@GetMapping("/faculty")
-	public List<GetFacultyDto> get() {
+	public List<Faculty> get() {
 		return facultyService.getFaculty();
 
 	}
@@ -44,9 +44,9 @@ public class FacultyController {
 	}
 
 	@GetMapping("/faculty/{id}")
-	public GetFacultyDto get(@PathVariable int id) {
+	public Faculty get(@PathVariable int id) {
 
-		GetFacultyDto facObj = facultyService.get(id);
+		Faculty facObj = facultyService.get(id);
 
 		return facObj;
 	}

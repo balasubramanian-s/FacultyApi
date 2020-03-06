@@ -40,9 +40,9 @@ public class Faculty {
 	@ManyToOne(targetEntity = Roles.class)
 	@JoinColumn(name = "`role_id`")
 	private Roles roles;
-	@Column(name = "`created_on`")
+	@Column(name = "`created_on`",columnDefinition="timestamp default current_timestamp")
 	private LocalDateTime createdon;
-	@Column(name = "`modified_on`")
+	@Column(name = "`modified_on`",columnDefinition = "timestamp")
 	private LocalDateTime modifiedon;
 	@Column(name = "`created_by`")
 	private String createdby;
@@ -115,6 +115,9 @@ public class Faculty {
 		this.mobile_no = mobile_no;
 	}
 
+
+	
+
 	public Roles getRoles() {
 		return roles;
 	}
@@ -122,8 +125,6 @@ public class Faculty {
 	public void setRoles(Roles roles) {
 		this.roles = roles;
 	}
-
-	
 
 	public LocalDateTime getCreatedon() {
 		return createdon;
