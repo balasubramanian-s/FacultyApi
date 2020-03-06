@@ -41,7 +41,7 @@ public class FacultyServiceImpl implements FacultyService {
 	@Override
 	public void save(InsertFacultyDto dto) {
 		
-		faculty.setId(dto.getId());
+		
 		faculty.setEmployee_id(dto.getEmployee_id());
 		org.setId(dto.getInstitution_id());
 		faculty.setOrg(org);
@@ -57,9 +57,11 @@ public class FacultyServiceImpl implements FacultyService {
 		
 		
 		if(dto.getId()==null) {
+			
 			faculty.setCreatedon(dto.getCreatedon());
 		}
 		else {
+			faculty.setId(dto.getId());
 			faculty.setModifiedon(dto.getModifiedon());
 		}
 	}
