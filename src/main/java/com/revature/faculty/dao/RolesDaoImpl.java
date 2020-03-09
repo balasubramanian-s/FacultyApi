@@ -28,7 +28,7 @@ public class RolesDaoImpl implements RolesDao {
 	}
 
 	@Override
-	public Roles get(int id) {
+	public Roles get(Long id) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		Roles rolesobj=currentSession.get(Roles.class, id);		
 		return rolesobj;
@@ -41,7 +41,7 @@ public class RolesDaoImpl implements RolesDao {
 	}
 	
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		Roles roles=currentSession.get(Roles.class, id);
 		currentSession.delete(roles);

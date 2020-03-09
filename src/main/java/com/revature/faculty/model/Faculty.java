@@ -19,7 +19,7 @@ import com.revature.faculty.model.Roles;
 public class Faculty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	@Column(name = "`employee_id`")
 	private int employee_id;
 	
@@ -35,25 +35,27 @@ public class Faculty {
 	@Column(name = "`email_id`")
 	private String email;
 	@Column(name = "`mobile_number`")
-	private Integer mobile_no;
+	private Long mobile_no;
 	
 	@ManyToOne(targetEntity = Roles.class)
 	@JoinColumn(name = "`role_id`")
 	private Roles roles;
-	@Column(name = "`created_on`",columnDefinition="timestamp default current_timestamp")
+	@Column(name = "`created_on`")
 	private LocalDateTime createdon;
-	@Column(name = "`modified_on`",columnDefinition = "timestamp")
+	@Column(name = "`modified_on`")
 	private LocalDateTime modifiedon;
 	@Column(name = "`created_by`")
 	private String createdby;
 	@Column(name = "`modified_by`")
 	private String modifiedby;
 
-	public int getId() {
+	
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -107,11 +109,11 @@ public class Faculty {
 		this.email = email;
 	}
 
-	public Integer getMobile_no() {
+	public Long getMobile_no() {
 		return mobile_no;
 	}
 
-	public void setMobile_no(Integer mobile_no) {
+	public void setMobile_no(Long mobile_no) {
 		this.mobile_no = mobile_no;
 	}
 

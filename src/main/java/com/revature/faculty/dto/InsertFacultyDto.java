@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class InsertFacultyDto {
 
 	
-	private Integer id;
+	private Long id;
 	
 	private int employee_id;
 
@@ -22,107 +22,150 @@ public class InsertFacultyDto {
 
 	private String email;
 
-	private int mobile_no;
+	private Long mobile_no;
 
-	private int role_id;
+	private Long role_id;
 	@JsonIgnore
 	private LocalDateTime createdon=LocalDateTime.now();
 	@JsonIgnore
 	private LocalDateTime modifiedon=LocalDateTime.now();
 	
 
-	public int getInstitution_id() {
-		return institution_id;
-	}
-
-	public void setInstitution_id(int institution_id) {
-		this.institution_id = institution_id;
-	}
-
-	public String getFirst_name() {
-		return first_name;
-	}
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public String getLast_name() {
-		return last_name;
-	}
-
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 
 
 	public int getEmployee_id() {
 		return employee_id;
 	}
 
+
+
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
 	}
 
-	public int getMobile_no() {
+
+
+	public int getInstitution_id() {
+		return institution_id;
+	}
+
+
+
+	public void setInstitution_id(int institution_id) {
+		this.institution_id = institution_id;
+	}
+
+
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+
+
+
+	public Date getDob() {
+		return dob;
+	}
+
+
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+
+
+
+	public Long getMobile_no() {
 		return mobile_no;
 	}
 
-	public void setMobile_no(int mobile_no) {
+
+
+	public void setMobile_no(Long mobile_no) {
 		this.mobile_no = mobile_no;
 	}
 
-	public int getRole_id() {
+
+
+	public Long getRole_id() {
 		return role_id;
 	}
 
-	public void setRole_id(int role_id) {
+
+
+	public void setRole_id(Long role_id) {
 		this.role_id = role_id;
 	}
+
+
 
 	public LocalDateTime getCreatedon() {
 		return createdon;
 	}
 
+
+
 	public void setCreatedon(LocalDateTime createdon) {
 		this.createdon = createdon;
 	}
-	
 
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
 
 	public LocalDateTime getModifiedon() {
 		return modifiedon;
 	}
 
+
+
 	public void setModifiedon(LocalDateTime modifiedon) {
 		this.modifiedon = modifiedon;
 	}
+
+
 
 	@Override
 	public String toString() {
@@ -131,7 +174,6 @@ public class InsertFacultyDto {
 				+ ", mobile_no=" + mobile_no + ", role_id=" + role_id + ", createdon=" + createdon + ", modifiedon="
 				+ modifiedon + "]";
 	}
-
 	
 
 	

@@ -9,14 +9,16 @@ public interface FacultyDao {
 	
 	List<Faculty> get();
 	
-	Faculty get(int id);
+	Faculty get(Long id);
 	
 	void save (Faculty fac);
 	
 	
 	
-	void delete(int id);
+	void delete(Long id);
 
-	List<Faculty> getByInstitution(int id);
+	List<Faculty> getByInstitution(Long id);
+
+	
 
 }

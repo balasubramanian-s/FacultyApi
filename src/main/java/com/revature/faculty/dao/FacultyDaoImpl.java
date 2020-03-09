@@ -27,7 +27,7 @@ public class FacultyDaoImpl implements FacultyDao {
 	}
 	
 	@Override
-	public List<Faculty> getByInstitution(int id){
+	public List<Faculty> getByInstitution(Long id){
 		Session currentSession=entityManager.unwrap(Session.class);
 		Query<Faculty> query=currentSession.createQuery("from Faculty Where institution_id=" + id,Faculty.class);
 		List<Faculty> list=query.getResultList();
@@ -35,7 +35,7 @@ public class FacultyDaoImpl implements FacultyDao {
 	}
 
 	@Override
-	public Faculty get(int id) {
+	public Faculty get(Long id) {
 		Session currentSession=entityManager.unwrap(Session.class);
 		Faculty facultyobj=currentSession.get(Faculty.class, id); 	
 		return facultyobj;
@@ -50,7 +50,7 @@ public class FacultyDaoImpl implements FacultyDao {
 	
 
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		Session currentSession=entityManager.unwrap(Session.class);
 		Faculty facultyobj=currentSession.get(Faculty.class, id);
 		currentSession.delete(facultyobj);

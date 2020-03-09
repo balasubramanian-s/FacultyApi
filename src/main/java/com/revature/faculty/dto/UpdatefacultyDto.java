@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class UpdatefacultyDto {
 	
-	private int id;
+	private Long id;
 	
 	private int employee_id;
 
@@ -21,20 +21,21 @@ public class UpdatefacultyDto {
 
 	private String email;
 
-	private int mobile_no;
+	private Long mobile_no;
 
-	private int role_id;
+	private Long role_id;
 	@JsonIgnore
 	private LocalDateTime modifiedon=LocalDateTime.now();
 
 	
 	
 	
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -86,19 +87,21 @@ public class UpdatefacultyDto {
 		this.email = email;
 	}
 
-	public int getMobile_no() {
+	
+
+	public Long getMobile_no() {
 		return mobile_no;
 	}
 
-	public void setMobile_no(int mobile_no) {
+	public void setMobile_no(Long mobile_no) {
 		this.mobile_no = mobile_no;
 	}
 
-	public int getRole_id() {
+	public Long getRole_id() {
 		return role_id;
 	}
 
-	public void setRole_id(int role_id) {
+	public void setRole_id(Long role_id) {
 		this.role_id = role_id;
 	}
 

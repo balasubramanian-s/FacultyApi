@@ -23,7 +23,7 @@ public class RolesServiceImpl implements RolesService {
 	}
 	@Transactional
 	@Override
-	public Roles get(int id) {
+	public Roles get(Long id) {
 		
 		return rolesDao.get(id);
 	}
@@ -35,7 +35,7 @@ public class RolesServiceImpl implements RolesService {
 	}
 	@Transactional
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		rolesDao.delete(id);
 
 	}

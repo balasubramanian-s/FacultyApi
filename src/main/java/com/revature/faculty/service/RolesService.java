@@ -7,11 +7,11 @@ import com.revature.faculty.model.Roles;
 public interface RolesService {
 	List<Roles>  get();
 	
-	Roles get(int id);
+	Roles get(Long id);
 	
 	void save(Roles role);
 	
-	void delete(int id);
+	void delete(Long id);
 	
 	
 }

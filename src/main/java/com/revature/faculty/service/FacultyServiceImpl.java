@@ -18,13 +18,13 @@ import com.revature.faculty.model.Roles;
 public class FacultyServiceImpl implements FacultyService {
 
 	private Faculty faculty = new Faculty();
-
+	
 	private Roles role = new Roles();
 	private Organization org = new Organization();
 
 	@Autowired
 	private FacultyDao facultyDao;
-	
+
 	@Transactional
 	@Override
 	public List<Faculty> getFaculty() {
@@ -33,7 +33,7 @@ public class FacultyServiceImpl implements FacultyService {
 
 	@Transactional
 	@Override
-	public Faculty get(int id) {		
+	public Faculty get(Long id) {
 		return facultyDao.get(id);
 	}
 
@@ -42,6 +42,14 @@ public class FacultyServiceImpl implements FacultyService {
 	public void save(InsertFacultyDto dto) {
 		
 		
+		if(dto.getId()!=null) {
+			faculty.setModifiedon(dto.getModifiedon());
+		}
+		else {
+			
+			faculty.setCreatedon(dto.getCreatedon());
+		}
+		faculty.setId(dto.getId());
 		faculty.setEmployee_id(dto.getEmployee_id());
 		org.setId(dto.getInstitution_id());
 		faculty.setOrg(org);
@@ -50,34 +58,25 @@ public class FacultyServiceImpl implements FacultyService {
 		faculty.setDob(dto.getDob());
 		faculty.setEmail(dto.getEmail());
 		faculty.setMobile_no(dto.getMobile_no());
-		role.setId(dto.getRole_id());
-		System.out.println(role);
+		role.setId(dto.getRole_id());		
 		faculty.setRoles(role);
+		
+		
 		facultyDao.save(faculty);
-		
-		
-		if(dto.getId()==null) {
-			
-			faculty.setCreatedon(dto.getCreatedon());
-		}
-		else {
-			faculty.setId(dto.getId());
-			faculty.setModifiedon(dto.getModifiedon());
-		}
 	}
 
 	@Transactional
 	@Override
-	public void delete(int id) {
+	public void delete(Long id) {
 		facultyDao.delete(id);
 
 	}
 
 	@Override
-	public List<Faculty> getByInstitution(int id) {
+	public List<Faculty> getByInstitution(Long id) {
 		return facultyDao.getByInstitution(id);
 
 	}
 
-
+	
 }

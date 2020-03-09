@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.revature.faculty.dto.InsertFacultyDto;
+import com.revature.faculty.dto.UpdatefacultyDto;
 import com.revature.faculty.model.Faculty;
 import com.revature.faculty.model.Roles;
 import com.revature.faculty.service.FacultyService;
@@ -38,13 +38,13 @@ public class FacultyController {
 	}
 
 	@GetMapping("/faculty/institution/{inst_id}")
-	public List<Faculty> getbyInst(@PathVariable int inst_id) {
+	public List<Faculty> getbyInst(@PathVariable Long inst_id) {
 
 		return facultyService.getByInstitution(inst_id);
 	}
 
 	@GetMapping("/faculty/{id}")
-	public Faculty get(@PathVariable int id) {
+	public Faculty get(@PathVariable Long id) {
 
 		Faculty facObj = facultyService.get(id);
 
@@ -64,7 +64,7 @@ public class FacultyController {
 	}
 
 	@DeleteMapping("/faculty/{id}")
-	public String delete(@PathVariable int id) {
+	public String delete(@PathVariable Long id) {
 		facultyService.delete(id);
 		return "Faculty Deleted With id:" + id;
 
@@ -76,7 +76,7 @@ public class FacultyController {
 		return rolesService.get();
 	}
 	@GetMapping("/role/{id}")
-	public Roles getRolesById(@PathVariable int id) {
+	public Roles getRolesById(@PathVariable Long id) {
 		return rolesService.get(id);
 		
 	}
@@ -93,7 +93,7 @@ public class FacultyController {
 		
 	}
 	@DeleteMapping("/role/{id}")
-	public String deleteRole(@PathVariable int id)
+	public String deleteRole(@PathVariable Long id)
 	{
 		rolesService.delete(id);
 		return "Role Deleted with id:"+id  ;
