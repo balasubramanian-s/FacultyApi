@@ -64,9 +64,9 @@ public class FacultyController {
 	}
 
 	@DeleteMapping("/faculty/{id}")
-	public String delete(@PathVariable Long id) {
+	public void delete(@PathVariable Long id) {
 		facultyService.delete(id);
-		return "Faculty Deleted With id:" + id;
+		System.out.println("Faculty Deleted With id:" + id);
 
 	}
 	

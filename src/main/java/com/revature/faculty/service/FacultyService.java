@@ -13,8 +13,7 @@ public interface FacultyService {
 	
 	void save (InsertFacultyDto dto);	
 	
-	
-	
+
 	void delete(Long id);
 	
 	List<Faculty> getByInstitution(Long id);

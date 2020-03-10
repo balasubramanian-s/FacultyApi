@@ -18,7 +18,7 @@ import com.revature.faculty.model.Roles;
 public class FacultyServiceImpl implements FacultyService {
 
 	private Faculty faculty = new Faculty();
-	
+
 	private Roles role = new Roles();
 	private Organization org = new Organization();
 
@@ -41,15 +41,17 @@ public class FacultyServiceImpl implements FacultyService {
 	@Override
 	public void save(InsertFacultyDto dto) {
 		
-		
-		if(dto.getId()!=null) {
-			faculty.setModifiedon(dto.getModifiedon());
-		}
-		else {
-			
+		if (dto.getId() == null) {
 			faculty.setCreatedon(dto.getCreatedon());
+			System.out.println("Object Not Exists");
+		} else {
+			faculty = facultyDao.get(dto.getId());
+			faculty.setModifiedon(dto.getModifiedon());
+			System.out.println("Object Exists");
+			faculty.setId(dto.getId());
 		}
-		faculty.setId(dto.getId());
+
+		
 		faculty.setEmployee_id(dto.getEmployee_id());
 		org.setId(dto.getInstitution_id());
 		faculty.setOrg(org);
@@ -58,10 +60,9 @@ public class FacultyServiceImpl implements FacultyService {
 		faculty.setDob(dto.getDob());
 		faculty.setEmail(dto.getEmail());
 		faculty.setMobile_no(dto.getMobile_no());
-		role.setId(dto.getRole_id());		
+		role.setId(dto.getRole_id());
 		faculty.setRoles(role);
-		
-		
+
 		facultyDao.save(faculty);
 	}
 
@@ -78,5 +79,4 @@ public class FacultyServiceImpl implements FacultyService {
 
 	}
 
-	
 }
