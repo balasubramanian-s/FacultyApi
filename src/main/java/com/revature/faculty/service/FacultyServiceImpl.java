@@ -40,7 +40,7 @@ public class FacultyServiceImpl implements FacultyService {
 	@Transactional
 	@Override
 	public void save(InsertFacultyDto dto) {
-		
+		Faculty faculty = new Faculty();
 		if (dto.getId() == null) {
 			faculty.setCreatedon(dto.getCreatedon());
 			System.out.println("Object Not Exists");
