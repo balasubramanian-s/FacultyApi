@@ -32,6 +32,10 @@ public class InsertFacultyDto {
 	
 
 	
+	
+
+
+
 	public Long getId() {
 		return id;
 	}
