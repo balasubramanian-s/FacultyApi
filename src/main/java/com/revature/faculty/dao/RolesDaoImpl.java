@@ -1,5 +1,6 @@
 package com.revature.faculty.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -35,9 +36,12 @@ public class RolesDaoImpl implements RolesDao {
 	}
 	
 	@Override
-	public void save(Roles role) {
+	public void save(Roles role){
 		Session currentSession = entityManager.unwrap(Session.class);
+		
 		currentSession.saveOrUpdate(role);
+		
+		
 	}
 	
 	@Override

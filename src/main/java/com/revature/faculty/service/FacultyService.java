@@ -2,20 +2,22 @@ package com.revature.faculty.service;
 
 import java.util.List;
 
+import com.revature.faculty.Exception.DBException;
+import com.revature.faculty.Exception.ServiceException;
 import com.revature.faculty.dto.InsertFacultyDto;
 import com.revature.faculty.model.Faculty;
 
 
 public interface FacultyService {
-	List<Faculty> getFaculty();
+	List<Faculty> get() throws ServiceException;
 	
-	Faculty get(Long id);
+	Faculty get(Long id) throws ServiceException;
 	
-	void save (InsertFacultyDto dto);	
+	void save (InsertFacultyDto dto) throws DBException;	
 	
 
-	void delete(Long id);
+	void delete(Long id)throws ServiceException;
 	
-	List<Faculty> getByInstitution(Long id);
+	List<Faculty> getByInstitution(Long id)throws ServiceException;
 	
 }
