@@ -29,7 +29,7 @@ public class RolesServiceImpl implements RolesService {
 			if(list.isEmpty()) {
 				throw new ServiceException(Message.NO_RECORD);
 			}
-		}catch(ServiceException e) {
+		}catch(DBException e) {
 			System.out.println(e.getMessage());
 			
 		}
@@ -44,7 +44,7 @@ public class RolesServiceImpl implements RolesService {
 			if(role == null) {
 				throw new ServiceException(Message.UNABLE_TO_FIND_ROLE);
 			}
-		}catch(ServiceException e) {
+		}catch( DBException e) {
 			System.out.println(e.getMessage());
 		}
 		
@@ -77,7 +77,7 @@ public class RolesServiceImpl implements RolesService {
 			else {
 				throw new ServiceException(Message.UNABLE_TO_DELETE_ROLE);
 			}
-		}catch(ServiceException e) {
+		}catch( DBException e) {
 			System.out.println(e.getMessage());
 		}
 

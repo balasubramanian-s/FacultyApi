@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.revature.faculty.Exception.DBException;
 import com.revature.faculty.model.Faculty;
 @Repository
 public class FacultyDaoImpl implements FacultyDao {
@@ -18,7 +19,7 @@ public class FacultyDaoImpl implements FacultyDao {
 	
 	
 	@Override
-	public List<Faculty> get() {
+	public List<Faculty> get() throws DBException {
 		
 		Session currentSession=entityManager.unwrap(Session.class);
 		Query<Faculty> query=  currentSession.createQuery("from Faculty",Faculty.class);
@@ -27,7 +28,7 @@ public class FacultyDaoImpl implements FacultyDao {
 	}
 	
 	@Override
-	public List<Faculty> getByInstitution(Long id){
+	public List<Faculty> getByInstitution(Long id) throws DBException{
 		Session currentSession=entityManager.unwrap(Session.class);
 		Query<Faculty> query=currentSession.createQuery("from Faculty Where institution_id=" + id,Faculty.class);
 		List<Faculty> list=query.getResultList();
@@ -35,14 +36,14 @@ public class FacultyDaoImpl implements FacultyDao {
 	}
 
 	@Override
-	public Faculty get(Long id) {
+	public Faculty get(Long id)throws DBException {
 		Session currentSession=entityManager.unwrap(Session.class);
 		Faculty facultyobj=currentSession.get(Faculty.class, id); 	
 		return facultyobj;
 	}
 
 	@Override
-	public void save(Faculty fac) {
+	public void save(Faculty fac) throws DBException{
 		Session currentSession=entityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(fac);
 
@@ -50,7 +51,7 @@ public class FacultyDaoImpl implements FacultyDao {
 	
 
 	@Override
-	public void delete(Long id) {
+	public void delete(Long id)throws DBException {
 		Session currentSession=entityManager.unwrap(Session.class);
 		Faculty facultyobj=currentSession.get(Faculty.class, id);
 		currentSession.delete(facultyobj);

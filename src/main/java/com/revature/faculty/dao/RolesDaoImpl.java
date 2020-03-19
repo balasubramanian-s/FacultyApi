@@ -1,6 +1,5 @@
 package com.revature.faculty.dao;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import org.hibernate.query.Query;
 
+import com.revature.faculty.Exception.DBException;
 import com.revature.faculty.model.Roles;
 
 @Repository
@@ -21,7 +21,7 @@ public class RolesDaoImpl implements RolesDao {
 	private EntityManager entityManager;
 	
 	@Override
-	public List<Roles> get() {
+	public List<Roles> get()  throws DBException{
 		Session currentSession = entityManager.unwrap(Session.class);
 		Query<Roles> query=currentSession.createQuery("from Roles",Roles.class);
 		List<Roles> list=query.getResultList();
@@ -29,14 +29,14 @@ public class RolesDaoImpl implements RolesDao {
 	}
 
 	@Override
-	public Roles get(Long id) {
+	public Roles get(Long id)  throws DBException{
 		Session currentSession = entityManager.unwrap(Session.class);
 		Roles rolesobj=currentSession.get(Roles.class, id);		
 		return rolesobj;
 	}
 	
 	@Override
-	public void save(Roles role){
+	public void save(Roles role) throws DBException{
 		Session currentSession = entityManager.unwrap(Session.class);
 		
 		currentSession.saveOrUpdate(role);
@@ -45,7 +45,7 @@ public class RolesDaoImpl implements RolesDao {
 	}
 	
 	@Override
-	public void delete(Long id) {
+	public void delete(Long id)  throws DBException{
 		Session currentSession = entityManager.unwrap(Session.class);
 		Roles roles=currentSession.get(Roles.class, id);
 		currentSession.delete(roles);

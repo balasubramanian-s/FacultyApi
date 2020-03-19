@@ -34,7 +34,7 @@ public class FacultyServiceImpl implements FacultyService {
 			if(list.isEmpty()) {
 				throw new ServiceException(Message.NO_RECORD);
 			}
-		}catch(ServiceException e) {
+		}catch(DBException e) {
 			System.out.println(e.getMessage());
 		}
 		return list;
@@ -49,7 +49,7 @@ public class FacultyServiceImpl implements FacultyService {
 			if(fac == null) {
 				throw new ServiceException(Message.UNABLE_TO_FIND);
 			}
-		}catch(ServiceException e) {
+		}catch( DBException e) {
 			System.out.println(e.getMessage());
 			
 		}
@@ -116,7 +116,7 @@ public class FacultyServiceImpl implements FacultyService {
 			else {
 				throw new ServiceException(Message.UNABLE_TO_DELETE);
 			}
-		}catch (ServiceException e) {
+		}catch (DBException e) {
 			System.out.println(e.getMessage());
 		}
 		 
@@ -130,7 +130,7 @@ public class FacultyServiceImpl implements FacultyService {
 			if(list.isEmpty()) {
 				throw new ServiceException(Message.NO_INSTITUTION_AVAILABLE);
 			}
-		}catch(ServiceException e) {
+		}catch(DBException e) {
 			System.out.println(e.getMessage());
 		}
 		return list;
